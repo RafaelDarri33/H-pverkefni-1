@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yum&yum</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Yum&yum</h1>
+        <nav>
+            <ul>
+                <li>Recipes</li>
+                <li>Videos</li>
+                <li>About us</li>
+            </ul>
+        </nav>
+    </header>
+    <section class="flexbox-grid">
+        <p>get ready to get busy</p>
+        <h1>All recipes</h1>
+        <div class="flexbox-container" id="recipe-container">
+            <!-- Recipe cards will be injected here by JavaScript -->
+        </div>
+    </section>
+   
+    <script>
+        // Recipe data array
+        const recipes = [
+            { name: "Pumpkin pie", image: "image1.jpg" },
+            { name: "Milk cookies", image: "image2.jpg" },
+            { name: "Almond cookies", image: "image3.jpg" },
+            { name: "Banana cake", image: "image4.jpg" },
+            { name: "Lax salad", image: "image5.jpg" },
+            { name: "Cube cake", image: "image6.jpg" },
+        ];
+        const container = document.getElementById('recipe-container');
+   
+        // Loop to create recipe cards
+        recipes.forEach(recipe => {
+            for (let i = 0; i < 4; i++) { // Repeat each recipe 4 times
+                const flexbox = document.createElement('div');
+                flexbox.className = 'flexbox';
+   
+                flexbox.innerHTML = `
+                    <img src="${recipe.image}" alt="${recipe.name}" class="recipe-image">
+                    <p class="recipe-name">${recipe.name}</p>
+                    <p class="see-more">See more</p>
+                    <p class="post-date">September</p>
+                `;
+   
+                container.appendChild(flexbox);
+            }
+        });
+    </script>
+</body>    
